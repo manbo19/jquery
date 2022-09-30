@@ -7,8 +7,22 @@
     <title>jquery_013_checkbox.html</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-      $(documnet).ready(function () {
-        $("#check_all").click(() => {});
+      //전체선택
+      $(document).ready(function () {
+        $("#check_all").click(function () {
+          $(".chk").prop("checked", $(this).prop("checked"));
+        });
+
+        //삭제 버튼을 누르면 전체선택 해제
+        $("button").click(() => {
+          //   $(".chk").each((index, element) => {
+          //     if ($(element).prop("checked"))
+          //       $(element).parent().parent().remove();
+          //   });
+          //$(".chk:checked").parent().parent().remove();
+
+          $(".chk:checked").parents("tr").remove();
+        });
       });
     </script>
   </head>
